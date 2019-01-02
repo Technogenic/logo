@@ -1,0 +1,29 @@
+
+@mixin border-radius($property) {
+  -webkit-border-radius: $property;
+  -ms-border-radius: $property;
+  border-radius: $property;
+}
+
+$color-bg: red;
+$color-logo: white;
+$size: 100px;
+$circle-a-stroke: 20px;
+
+body {
+  background-color: silver;
+}
+
+#technogenic-container {
+  $container-size: $size + $circle-a-stroke * 2;
+  background-color: $color-bg;
+  width: $container-size;
+  height: $container-size;
+}
+
+#technogenic-logo {
+  border: solid $circle-a-stroke $color-logo;
+  width: $size;
+  height: $size;
+  @include border-radius($size);
+}
