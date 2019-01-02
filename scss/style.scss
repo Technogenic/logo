@@ -8,22 +8,27 @@
 $color-bg: red;
 $color-logo: white;
 $size: 100px;
-$circle-a-stroke: 20px;
+$circle-a-stroke: 30px;
 
 body {
-  background-color: silver;
+  font-family: sans-serif;
+}
+
+td:first-child {
+  border: 1px silver solid
 }
 
 #technogenic-container {
-  $container-size: $size + $circle-a-stroke * 2;
+  margin: 2px;
   background-color: $color-bg;
-  width: $container-size;
-  height: $container-size;
+  width: $size;
+  height: $size;
 }
 
 #technogenic-logo {
+  $logo-size: $size - $circle-a-stroke * 2;
   border: solid $circle-a-stroke $color-logo;
-  width: $size;
-  height: $size;
+  width: $logo-size;
+  height: $logo-size;
   @include border-radius($size);
 }
