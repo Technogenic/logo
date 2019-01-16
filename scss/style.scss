@@ -5,6 +5,17 @@
   border-radius: $property;
 }
 
+@mixin square($side) {
+  width: $side;
+  height: $side;
+}
+
+@mixin circle($radius) {
+  @include border-radius($radius);
+  @include square($radius * 2);
+  position: relative;
+}
+
 $color-bg: red;
 $color-logo: white;
 $size: 100px;
@@ -18,17 +29,32 @@ td:first-child {
   border: 1px silver solid
 }
 
-#technogenic-container {
-  margin: 2px;
+#technogenic-logo {
   background-color: $color-bg;
   width: $size;
   height: $size;
 }
 
-#technogenic-logo {
-  $logo-size: $size - $circle-a-stroke * 2;
-  border: solid $circle-a-stroke $color-logo;
-  width: $logo-size;
-  height: $logo-size;
-  @include border-radius($size);
+#circle-a {
+  @include circle($size/2);
+  background-color: $color-logo;
+}
+
+#circle-b {
+  $radius-b: 40px;
+  @include border-radius($radius-b);
+  @include square($radius-b);
+  border: 20px black solid;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  background-color: blue;
+}
+
+#circle-c {
+  $radius-c: 20px;
+  @include circle($radius-c);
+  background-color: gold;
+  // top: ($size / 2) - $radius-c;
+  // left: ($size / 2) - $radius-c;
 }
